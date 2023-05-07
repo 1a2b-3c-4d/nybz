@@ -1,0 +1,209 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+#content{
+	width: 100vw;
+	height: 100vh;
+}
+.page{
+	display: none;
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+}
+.bg{
+	display: block;
+	background: black;
+	z-index: -1;
+}
+.loading{
+	color: white;
+	text-align: center;
+}
+@keyframes fish{
+	100%{
+		transform: scale(1.1);
+	}
+}
+.fish{
+	margin-top: 14.4678vh;
+	width: 30.6667vw;
+	animation: fish 0.3s infinite alternate;
+}
+.loading h2{
+	font-size: 10vw;
+	margin-top: 13.0435vh;
+}
+.loading p{
+	font-size: 7vw;
+	margin-top: 6.2219vh;
+}
+
+
+.page1{
+	
+}
+.page1 img{
+	position: absolute;
+}
+@keyframes fo{
+	0%{
+		margin-top: -50vh;
+	}
+	100%{
+		margin-top: 23.0135vh;
+	}
+}
+.fo{
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 73.0667vw;
+	animation: fo 2s forwards;
+}
+.t{
+	width: 44.8000vw;
+}
+@keyframes trans1{
+	0%{
+		left: -60vw;
+	}
+	100%{
+		left: 5.6000vw;
+	}
+}
+@keyframes trans2{
+	0%{
+		left: 150vw;
+	}
+	100%{
+		left: 42.2667vw;
+	}
+}
+.t1{
+	top: 7.1964vh;
+	animation: trans1 2s forwards;
+}
+.t2{
+	top: 16.1919vh;
+	animation: trans2 2s forwards;
+}
+.t3{
+	/* left: 4.4000vw; */
+	top: 43.1784vh;
+	animation: trans1 2s forwards;
+}
+.t4{
+	/* left: 47.3333vw; */
+	top: 66.8666vh;
+	animation: trans2 2s forwards;
+}
+.t5{
+	width: 40.0000vw;
+	left: 53.3333vw;
+	top: 34.4078vh;
+	
+}
+.start{
+	width: 21.3333vw;
+	bottom: 10.4948vh;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+@keyframes yuan{
+	100%{
+		opacity: 0;
+		transform: scale(1);
+	}
+}
+.yuan{
+	width: 28vw;
+	bottom: 8.5vh;
+	left: 0;
+	right: 0;
+	margin: auto;
+	transform: scale(0.8);
+	animation: yuan 1s infinite
+}
+@keyframes high{
+	100%{
+		opacity: 1;
+	}
+}
+
+.high{
+	opacity: 0;
+	z-index: 1;
+	width: 100vw;
+	left: -5vw;
+	animation: high 1s infinite alternate;
+}
+.page2{
+	color: white;
+}
+.page2 img{
+	position: absolute;
+}
+.page2 h2{
+	position: absolute;
+	top: 5vh;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+.page2 p{
+	position: absolute;
+	left: 9.2000vw;
+	top: 38.8831vh;
+	font-size: 5vw;
+	opacity: 0;
+}
+.mfish{
+	width: 50.6667vw;
+	left: 0;
+	right: 0;
+	margin: auto;
+	margin-top: 37.8561vh;
+}
+.hanmmer{
+	width: 30.8000vw;
+	left: 59.0667vw;
+	top: 30vh;
+	transform-origin: right bottom;
+	/* transform: rotate(-7deg); */
+}
+
+
+@keyframes over{
+	100%{
+		transform: rotate(360deg) scale(1);
+		opacity: 1;
+		
+	}
+}
+.over{
+	display: none;
+	position: absolute;
+	top: 30vh;
+	left: 0;
+	text-align:center;
+	width: 100vw;
+	background: rgba(0, 0, 0, .6);
+	transform: rotate(0) scale(0.3);
+	opacity: 0;
+	animation: over 1s forwards;
+	z-index: 1;
+	padding: 2vh 0;
+	
+}
+.gif{
+	display: none;
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
