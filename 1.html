@@ -1,0 +1,142 @@
+
+<html>
+ <head></head> 
+ <body id="v1">
+   7 
+  <title>注册和登录页面</title> 
+  <style>
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+		}
+
+		input {
+			margin-bottom: 10px;
+			padding: 5px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0 0 3px #ccc;
+			width: 300px;
+		}
+
+		button {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background-color: #3e8e41;
+		}
+
+		#error {
+			color: red;
+			font-size: 14px;
+			margin-top: 10px;
+		}
+	</style> 
+  <script src="js/jq.js"></script> 
+  <h1 id="v2">注册页面</h1> 
+  <form id="registerForm"> 
+   <label id="v3" for="username">用户名或电子邮件地址</label> 
+   <input type="text" id="username" name="username" required=""> 
+   <label id="v4" for="password">密码</label> 
+   <input type="password" id="password" name="password" required=""> 
+   <label id="v5" for="confirmPassword">确认密码</label> 
+   <input type="password" id="confirmPassword" name="confirmPassword" required=""> 
+   <button id="v6" type="submit">注册</button> 
+   <p id="v7">已经有账号了？<a href="#" id="loginLink">登录</a></p> 
+   <p id="error"></p> 
+  </form> 
+  <h1 id="v8">登录页面</h1> 
+  <form id="loginForm" style="display: none;"> 
+   <label id="v9" for="username">用户名或电子邮件地址</label> 
+   <input type="text" id="loginUsername" name="username" required=""> 
+   <label id="v10" for="password">密码</label> 
+   <input type="password" id="loginPassword" name="password" required=""> 
+   <button id="v11" type="submit">登录</button> 
+   <p id="v12">还没有账号？<a href="#" id="registerLink">注册</a></p> 
+   <p id="loginError"></p> 
+  </form> 
+  <script>
+		const registerForm = document.getElementById('registerForm');
+		const loginForm = document.getElementById('loginForm');
+		const loginLink = document.getElementById('loginLink');
+		const registerLink = document.getElementById('registerLink');
+		const error = document.getElementById('error');
+		const loginError = document.getElementById('loginError');
+
+		// 切换到登录页面
+		loginLink.addEventListener('click', (event) => {
+			event.preventDefault();
+			registerForm.style.display = 'none';
+			loginForm.style.display = 'flex';
+		});
+
+		// 切换到注册页面
+		registerLink.addEventListener('click', (event) => {
+			event.preventDefault();
+			registerForm.style.display = 'flex';
+			loginForm.style.display = 'none';
+		});
+
+		// 注册提交事件
+		registerForm.addEventListener('submit', (event) => {
+			event.preventDefault();
+
+			const username = document.getElementById('username').value;
+			const password = document.getElementById('password').value;
+			const confirmPassword = document.getElementById('confirmPassword').value;
+
+			// 检查用户名或电子邮件地址是否已存在
+			if (localStorage.getItem(username)) {
+				error.innerHTML = '用户名或电子邮件地址已存在';
+			}
+			// 检查密码和确认密码是否匹配
+			else if (password !== confirmPassword) {
+				error.innerHTML = '密码和确认密码不匹配';
+			} else {
+				// 将新用户添加到localStorage中
+				localStorage.setItem(username, JSON.stringify({ username, password }));
+
+				// 清空表单并显示登录页面
+				registerForm.reset();
+				error.innerHTML = '';
+				registerForm.style.display = 'none';
+				loginForm.style.display = 'flex';
+			}
+		});
+
+		// 登录提交事件
+		loginForm.addEventListener('submit', (event) => {
+			event.preventDefault();
+
+			const username = document.getElementById('loginUsername').value;
+			const password = document.getElementById('loginPassword').value;
+
+			// 检查用户是否存在
+			const user = JSON.parse(localStorage.getItem(username));
+
+			if (!user)
+{
+				loginError.innerHTML = '用户名或密码不正确';
+			}
+			// 检查密码是否匹配
+			else if (password !== user.password) {
+				loginError.innerHTML = '用户名或密码不正确';
+			} else {
+				// 登录成功，将用户信息保存到会话存储中
+				sessionStorage.setItem('user', JSON.stringify(user));
+
+				// 跳转到用户主页或其他需要登录的页面
+				window.location.href = '2.html';
+			}
+		});
+	</script> 
+ </body>
+</html>
