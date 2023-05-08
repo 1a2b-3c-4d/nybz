@@ -1,0 +1,61 @@
+<h1></h1>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1" charset="utf-8"/>
+<title>登录</title>
+<style>
+input{
+  
+  width:70%;
+  height:35px;
+  border:#f50 1px solid;
+  }
+#dl{
+
+  width:70%;
+  height:40px;
+  border:white 1px solid;
+  background-color:#f50;
+  color:White;
+  }
+#k{
+  width:30%;
+  height:38px;
+  border-width:0.5px;
+  border-radius:8px;
+  background-color:#26ff00;
+  color:#000808;
+  }
+</style>
+<script>
+function input(){
+  
+  var ps=document.getElementById("mmm").value;
+  if(ps==""||ps==null){
+    
+    alert("请输入内测版卡密");
+    }
+  else if(ps=="640153870"){
+   
+    window.location.href="server.html";
+    }
+  else{
+    
+    alert("密码错误")
+    }
+  }
+</script>
+</head>
+<body align="center" White="300">
+
+<br><br><br>
+<form>
+<input type="password" placeholder="内测版用户输入密码" id="mmm"><br><br>
+<input type="button" id="dl" value="确定" onclick="input()">
+</form>
+<br>
+
+  
+</body>
+</html>
