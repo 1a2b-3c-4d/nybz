@@ -8,6 +8,16 @@
 	<title>minecraft2B2T服务器介绍</title>
 	<meta name='description' content='minecraft2B2T.org服务器的离线中国服介绍'>
 </head>
+	<style>
+  #k{
+  width:100%;
+  height:38px;
+  border-width:0.5px;
+  border-radius:8px;
+  background-color:#00fff9;
+  color:#000808;
+  }
+	</style>
 <body>
 	<header>
 		<h1>2B2T服</h1>
@@ -19,8 +29,7 @@
 		
 			<p>服务器IP：play.simpfun.vip:31451</p>
 			<p>QQ群号：762538734</p>
-	         	<a target=“_blank” href=“https://qm.qq.com/cgi-bin/qm/qr?k=ToWrOaWzcmM_H2Aw-typjlYrtTH_gK__&jump_from=webapi&authKey=UBnDlcAYkVgvXN3BU/MqM7Zh+e8nwY3Q0IqJZki6Oxp8DWfizW/5LBHJF+lhAhCr”><img border=“0”><img border=“0” src=“1.png” alt=“2B2T” title=“2B2T”></>
-			    
+	         	<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=ToWrOaWzcmM_H2Aw-typjlYrtTH_gK__&jump_from=webapi&authKey=UBnDlcAYkVgvXN3BU/MqM7Zh+e8nwY3Q0IqJZki6Oxp8DWfizW/5LBHJF+lhAhCr"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="CN2b2t" title="CN2b2t"></a> 
 				<p>初次进服请用/reg “你的密码” 指令注册，以后进服请用/l “你的密码” 指令登录。</p>
                                                 <p>本服务器欢迎一切外挂进服</p>
 												<p>推荐使用1.12.x到1.19.4进服</p>
@@ -30,10 +39,83 @@
 	<br>
 	<br>
 	<br>
+	<a href="mm.html"><button id="k"><div>下载</div></button></a>
+<br>
 	
+	<a>密码获取</a><a href="3.html">start</a>
 	</main>
 	<footer>
 		<p>&copy; 2023 nybz的Minecraft2B2T服  </p>
 	</footer>
 </body>
 </html>
+<html>
+  <head>
+    <style>
+      input[type=button]{
+        width:98%;
+        background:#ffffff;
+        }
+      input[type=button]#b{
+        width:25%;
+        position:absolute;
+        right:35px;
+        }
+      pr{
+        width:60%;
+        display:inline;
+        }
+      span.o{
+        display:block;
+        border-style:double;
+        border-width:5px;
+        margin:10px;
+        padding:10px;
+        }
+    </style>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>WebCat</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  </head>
+  <body>	
+    <script>
+      Swal.fire({
+        text : "2b2t",
+        type : "info",
+        title : "欢迎！",
+        confirmButtonText : "进入",
+        showCancelButton : true,
+        cancelButtonText : "退出",
+        allowOutsideClick:false,
+        allowEscapekey : false,
+        footer:"=767494018="
+        }).then((isConfirm) => {
+          if (isConfirm.value) {
+            Swal.fire({
+              toast:true,
+              showConfirmButton: false,
+              type: 'success',
+              timer:1500,
+              text:"您已成功进入！",
+              allowOutsideClick:false,
+              allowEscapekey : false,
+              position:"top-end"
+            });
+          } else {
+            Swal.fire({
+              type: 'warning',
+              text:"您确定退出？",
+              showCancelButton:true,
+              cancelButtonText:"取消",
+              confirmButtonText:"确认",
+              allowOutsideClick:false,
+              allowEscapekey : false
+            }).then((isConfirm)=>{
+              if(isConfirm.value){
+                iapp.fn("webcat.exit();");
+                }
+              });
+            }
+          });
+    </script>
