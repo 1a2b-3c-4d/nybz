@@ -1,0 +1,100 @@
+<style>
+*{
+  margin:0;
+  padding:0;
+  
+  
+  
+  }
+body{
+  background: #fcfcfc;
+  
+  
+  }
+.header{
+  background: skyblue;
+  height:45px;
+  color:white;
+  text-align:center;
+  }
+.header h1{
+  
+ font-size:20px; 
+  font-weight:400;
+  }
+.header p{
+  
+ font-size:10px;
+ font-weight:300;
+  }
+
+
+
+</style>
+
+
+<div class="header">
+<h1>牛马客服</h1>
+<p>在线状态:24小时服务</p>
+</div>
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>WebCat</title>
+	<script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css1/style.css">
+    <script src="js/wc-3.0.6.min.js"></script>
+  </head>
+  <body>		
+    <div id="main"></div>
+    <div id="footer">
+      <input id="sendText" type="text" placeholder="请输入内容"/>
+      <input id="sendButton" type="button" value="发送"/>
+    </div>
+    <script>
+      wc.alertDialog({
+        content: "欢迎体验聊天机器人",
+        ok: "加群",
+        okFun: function(){
+          wc.goQQGroup("767494018");
+        }
+      });
+      $("#sendButton").click(function(){
+        var str = $("#sendText").val();
+        if(str == ""){
+          return;
+        }
+        addMessage(0, str);
+        $("#sendText").val("");
+        $.ajax({
+          url: "http://api.qingyunke.com/api.php?key=free&appid=0&msg=" + str,
+          async: true,
+          type: "get",
+          dataType: "json",
+          success: function(result){
+            addMessage(1, result.content);
+          },
+          error: function(err){
+            //alert(JSON.stringify(err));
+          }
+        });
+      });  
+    
+      function addMessage(type, message){
+        var reg = new RegExp("{br}","g");
+        var message = message.replace(reg, "</br>");
+        if(type == 1){
+          $("#main").append("<div class='item'><div class='item-left'>" + message + "</div></div>");
+        } else{
+          $("#main").append("<div class='item'><div class='item-right'>" + message + "</div></div>");
+        }
+        $('#main').scrollTop($('#main')[0].scrollHeight);
+      }   
+      $("#main").css("max-height", $(window).height()-50);     
+    </script> 
+  </body>
+</html>
