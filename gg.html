@@ -1,0 +1,109 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>公告</title>
+    <script src="js/jq.js"></script>
+  <body background="OIP-C.png"></body>”
+
+    <style>
+        body {
+            background-color: rgba(0, 0, 0, 0.4);
+            font-family: Arial, sans-serif;
+        }
+
+        .popup-container {
+            position: fixed;
+            top: 50%;
+            right: -100%;
+            width: 90%;
+            max-width: 460px;
+            height: 80%;
+            max-height: 630px;
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            z-index: 99999;
+            transform: translateY(-50%);
+            animation: slide-in 0.5s ease forwards;
+        }
+
+        .popup-header {
+            padding: 20px;
+            background-color: #dceeef;
+            border-bottom: 1px solid #c7d4d9;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .popup-body {
+            padding: 0 20px 20px;
+            height: 100%;
+            overflow: auto;
+        }
+
+        .popup-body p {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #666;
+            font-size: 16px;
+        }
+
+        .btn-return {
+            display: block;
+            margin: 20px auto 10px;
+            width: 80%;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            background-color: #ff6767;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-return:hover {
+            background-color: #f44336;
+        }
+
+        /* 定义动画 */
+        @keyframes slide-in {
+            0% {
+                right: -100%;
+            }
+            100% {
+                right: 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="popup-container">
+    <div class="popup-header">
+        公告📢
+    </div>
+    <div class="popup-body">
+        <p>1. 这是一条内容</p>
+        <p>2. 这是一条内容</p>
+        <p>3. 这是一条内容</p>
+        <p>4. 这是一条内容</p>
+        <p>5. 这是一条内容</p>
+        <p>6. 这是一条内容</p>
+        <p>7. 这是一条内容</p>
+        <p>8. 这是一条内容</p>
+        <p>9. 这是一条内容</p>
+        <button class="btn-return" onclick="window.location.href = 'index.html'">返回主页</button>
+    </div>
+</div>
+</body>
+</html>
