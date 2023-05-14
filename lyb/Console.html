@@ -1,0 +1,150 @@
+ <html>
+ <head> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <title>评论留言板</title> 
+    <link rel="stylesheet" href="https://cdn.w3cbus.com/library/mdui/1.0.2/css/mdui.min.css"/>
+    <link rel="stylesheet" href="./ik/css/layui.css" media="all"><script ="//unpkg.com/layui@2.7.6/dist/css/layui.css"></script>
+    <script type="text/javascript" src="indexs.js"></script>
+    <script src="//unpkg.com/layui@2.7.6/dist/layui.js"></script>
+   </head>
+   <body>
+ <!--style 控件样式-->
+  <style>
+      body{
+        background-color:#EEEEEE;
+        }
+     .bon {
+        color           :#EEEEEE;
+        width           :100px;
+        height          :42px;
+        background-color:#3399ff;
+        border:0px solid;
+        border-radius   :28px;
+        text-shadow:0px 0px 0px black
+        }
+        #is{
+        color           :White;
+        width           :250px;
+        height          :100px;
+        background-color:#F6F6F6;
+        border:0px solid;
+        border-radius:28px;
+       -moz-border-radius:100px;
+        text-shadow:0px 0px 0px black
+          }
+      .m   {
+        color           :grey;
+       -moz-borer-radius:100px;
+        height          :270px;
+        background-color:White;
+        border:0px solid;
+        border-radius   :15px;
+        text-align      :center;
+        }
+     .m6  {
+        background-color:white;
+        border:0px solid;
+        border-radius   :15px;
+        text-align      :center;
+        }
+     .m3  {
+        height:100px;
+        background-color:white;
+        border:0px solid;
+        border-radius   :40px;
+        text-align      :center;
+        display         :flex;
+        align-items     :center;
+        justify-content :center;
+       }
+     .c   {
+        text-align      :center;
+       }
+     #c   {
+        color           :#1E9FFF;
+        text-align      :center;
+       }
+     input{
+        height          :60;
+        width           :250;
+        background-color:#F6F6F6;
+        border:0px solid;
+        border-radius:26px;
+       -moz-border-radius:25px;}
+    .opp  {
+        width           :300;
+        background-color:#F6F6F6;
+        border:0px solid;
+        border-radius:25px;
+       -moz-border-radius:25px;
+        }
+   .inputs{
+        height          :70;
+        width           :240;
+        background-color:#F6F6F6;
+        border:0px solid;
+        border-radius   :0px;
+       -moz-border-radius:25px;
+        }
+ </style> 
+<!--Div标签(动画)-->
+ <div class="layui-anim layui-anim-up">
+     <br>
+     <br>
+   <div id="c">
+     <div class="h1">
+       <li>
+       <h1>控制台</h1>
+       </li>
+     </div>
+   </div>
+      <br>
+   <!--圆角背景-->
+       <div class="m">
+         <li>
+            <br>
+            <br>
+            <div class="c"> 
+              <br>
+            <button id="is">
+             <div class="c"> 
+               <textarea class="inputs" id="dome" placeholder="    ￴ ￴￴ ￴ ￴    ￴ ￴￴ ￴    ￴ ￴￴   ￴ ￴￴ ￴   ￴ ￴￴   ￴ ￴    ￴ ￴￴ ￴    ￴ ￴￴ ￴ ￴    ￴ ￴￴ ￴    ￴ ￴￴ ￴ ￴    ￴ ￴￴ ￴    ￴ ￴￴ ￴ ￴    ￴ ￴￴ ￴ ￴    ￴ ￴￴ ￴    ￴￴ ￴请您叙述所想内容"></textarea>
+             </button>
+           </div> 
+     <!--按钮-->
+       <div class="m3">
+         <br>
+      <button class="bon" onclick="saveStorage('dome');">保存</button>
+          <p>    ￴ ￴￴ ￴ ￴   ￴ ￴￴ ￴</p> 
+      <button class="bon" onclick="clearStorage('msg');">清空</button>
+          <p>    ￴ ￴￴ ￴ ￴   ￴ ￴￴ ￴</p>
+      <button class="bon" onclick="loadStorage('msg');">读取</button>
+     </div>
+      <br>
+   </div>
+      <br>
+ <div class="c">
+    <div class="m6">
+        <br>
+      <button class="opp">
+        <br>
+          <!--显示留言板内容的p标签-->
+          <p class="" id="msg"></p><hr>
+        <br>
+      </button>
+            <br>
+           <br>
+       </div>
+     </div>
+  </div>
+        <br> 
+     <br>
+   </div>
+   </div>
+   </div>
+   </li>
+ <!--出处 创海工作室-->
+ <!--QQ群737977468-->
+ </body>
+</html>

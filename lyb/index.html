@@ -1,0 +1,101 @@
+<html>
+ <head> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <title>评论留言板</title> 
+    <link rel="stylesheet" href="https://cdn.w3cbus.com/library/mdui/1.0.2/css/mdui.min.css"/>
+    <link rel="stylesheet" href="./ik/css/layui.css" media="all"><script ="//unpkg.com/layui@2.7.6/dist/css/layui.css"></script>
+    <script type="text/javascript" src="indexs.js"></script>
+    <script src="//unpkg.com/layui@2.7.6/dist/layui.js"></script>
+   </head>
+  <body class="mdui-bottom-nav-fixed" style="background-color:;">
+ <!--style 控件样式-->
+  <style>
+      body{
+        background-color:#EEEEEE;
+        }
+     .bon {
+        color           :#EEEEEE;
+        width           :40px;
+        height          :40px;
+        background-color:#3399ff;
+        border:0px solid;
+        border-radius   :6px;
+        text-shadow:0px 0px 0px black
+        }
+     .m   {
+       -moz-borer-radius:100px;
+        height          :270px;
+        background-color:White;
+        border:0px solid;
+        border-radius   :15px;
+        text-align      :center;
+        }
+     .m6  {
+        background-color:white;
+        border:0px solid;
+        border-radius   :15px;
+        text-align      :center;
+        }
+     .c   {
+        text-align      :center;
+       }
+     #c   {
+        color           :#1E9FFF;
+        text-align      :center;
+       }
+     input{
+        height          :40;
+        width           :250;
+        background-color:#F6F6F6;
+        border:0px solid;
+        border-radius:6px;
+       -moz-border-radius:25px;
+       }
+      </style> 
+<!--Div标签(动画)-->
+ <div class="layui-anim layui-anim-up">
+    <br>
+    <br>
+ <div id="c">
+  <div class="h1">
+    <li>
+      <!--留言板-->
+       <h1>IO 留言板</h1>
+     </li>
+   </div>
+ </div>
+  <br>
+  <br>
+     <div class="m">
+       <li>
+         <div class="m6">
+          <br>
+          <!--显示留言板内容的p标签-->
+          <p class="" id="msg"><hr></p>
+          <br>
+          <br>
+          <br>
+         </div>
+         </div>
+         <br> 
+         <br> 
+            </div>
+        </div>
+    </div>
+ </li>  
+    <!--书写框和发布按钮，刷新按钮-->
+    <div class="mdui-bottom-nav" id="1">
+    <div class="c"> 
+       <br>
+     <div class="c"> 
+        <p>￴ ￴￴ ￴    ￴￴ ￴￴ ￴    ￴
+           <input id="dome" type="text" placeholder="    ￴ ￴￴ ￴ ￴    ￴ ￴￴ ￴    ￴ ￴ ￴  快来抢沙发吧~">￴￴ ￴￴ ￴
+           <button class="bon" onclick="saveStorage('dome');">发布</button>
+ ￴ ￴         <button class="bon" onclick="loadStorage('msg');">刷新</button>
+        </div>
+     </div>
+ </div>
+ 
+ </body>
+</html>
