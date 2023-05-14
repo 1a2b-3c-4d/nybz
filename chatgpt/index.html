@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 聊天页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .chat-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            width: 90%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+        }
+        .chat-messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        .message {
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            max-width: 100%;
+            word-wrap: break-word;
+        }
+        .user-message, .ai-message {
+            display: flex;
+            flex-direction: column;
+        }
+        .user-message {
+            background-color: #d1e7ff;
+            align-self: flex-end;
+        }
+        .ai-message {
+            background-color: #e5e5e5;
+        }
+        .ai-message .message-content {
+            width: fit-content;
+            max-width: calc(100% - 11ch);
+            padding: 0 5px;
+        }
+        .input-container {
+            display: flex;
+            align-items: center;
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 400px;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        input {
+            flex-grow: 1;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #bbbbbb;
+        }
+        button {
+            margin-left: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-messages" id="chat-messages">
+        </div>
+    </div>
+    <div class="input-container">
+        <input type="text" id="user-input" placeholder="输入您的消息...">
+        <button onclick="sendMessage()" id="send-button">发送</button>
+    </div>
+    <script>
+        function createMessageElement(text, className) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', className);
+            const messageContent = document.createElement('span');
+            messageContent.classList.add('message-content');
+            messageContent.textContent = text;
+            messageElement.appendChild(messageContent);
+            return messageElement;
+        }
+
+        async function sendMessage() {
+            const userInput = document.getElementById('user-input');
+            const chatMessages = document.getElementById('chat-messages');
+            const userMessage = userInput.value.trim();
+            const sendButton = document.getElementById('send-button');
+
+            if (userMessage) {
+                chatMessages.appendChild(createMessageElement(userMessage, 'user-message'));
+                userInput.value = '';
+                sendButton.style.display = 'none';
+
+                const response = await fetch(`http://ovoa.cc/api/ChatGPT.php?msg=${encodeURIComponent(userMessage)}&type=wifi&id=1`);
+                const responseData = await response.text();
+                chatMessages.appendChild(createMessageElement('AI: ' + responseData, 'ai-message'));
+                sendButton.style.display = 'inline';
+            }
+        }
+
+        document.getElementById('user-input').addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
